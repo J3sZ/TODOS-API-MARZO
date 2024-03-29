@@ -38,16 +38,25 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #local
-    'todos.apps.TodosConfig'
+    'todos.apps.TodosConfig',
     #3rd party
     'rest_framework',
     'corsheaders',
+    'drf_spectacular',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS':
+    'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Todo API',
+    'DESCRIPTION': 'un API de una lsta de tareas',
+    'VERSION': '1.0.0',
 }
 
 MIDDLEWARE = [
