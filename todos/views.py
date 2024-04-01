@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import task
-from .serializers import taskSerializer 
+from .serializers import TaskSerializer
 from rest_framework import generics
 
 
@@ -8,8 +8,8 @@ from rest_framework import generics
 
 class taskList(generics.ListCreateAPIView): 
     queryset = task.objects.all()
-    serializer_class = taskSerializer
+    serializer_class = TaskSerializer
 
 class taskDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = task.objects.all()
-    serializer_class = taskSerializer
+    serializer_class = TaskSerializer
